@@ -1,4 +1,4 @@
-homebrew-tokumx-bin
-===================
+homebrew-tokumx
+===============
 
 homebrew recipe for tokumx binaries
