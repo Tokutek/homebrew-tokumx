@@ -26,6 +26,7 @@ class TokumxBin < Formula
     doc.install Dir["NEWS"]
     doc.install Dir["README"]
     doc.install Dir["README-TOKUKV"]
+    share.install Dir["scripts"]
 
     (buildpath+"tokumx.conf").write tokumx_conf
     etc.install "tokumx.conf"
