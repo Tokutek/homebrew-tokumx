@@ -21,12 +21,8 @@ class TokumxBin < Formula
 
     bin.install Dir["bin/*"]
     lib.install Dir["lib64/*"]
-    doc.install Dir["GNU-AGPL-3.0"]
-    doc.install Dir["THIRD-PARTY-NOTICES"]
-    doc.install Dir["NEWS"]
-    doc.install Dir["README"]
-    doc.install Dir["README-TOKUKV"]
     share.install Dir["scripts"]
+    doc.install "GNU-AGPL-3.0", "THIRD-PARTY-NOTICES", "NEWS", "README", "README-TOKUKV"
 
     (buildpath+"tokumx.conf").write tokumx_conf
     etc.install "tokumx.conf"
