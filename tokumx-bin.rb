@@ -2,9 +2,9 @@ require "formula"
 
 class TokumxBin < Formula
   homepage "http://www.tokutek.com/products/tokumx-for-mongodb"
-  version "1.4.2"
+  version "1.5.0"
   conflicts_with "mongodb"
-  url "https://s3.amazonaws.com/tokumx-1.4.2/tokumx-1.4.2-osx-x86_64-main.tar.gz"
+  url "https://s3.amazonaws.com/tokumx-1.5.0/tokumx-1.5.0-osx-x86_64-main.tar.gz"
   sha1 "161f51cfaca49676a98777de03b6983ea41eb61d"
 
   raise FormulaSpecificationError, 'Formula requires Mavericks (OSX 10.9)' unless MacOS.version == :mavericks
@@ -14,9 +14,9 @@ class TokumxBin < Formula
     raise CannotInstallFormulaError, "Canceling at user request." unless $?.success?
     email.strip!
     unless email.empty?
-      curl "-X", "POST", "--data-urlencode", "email=#{email}", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
+      curl "-X", "POST", "--data-urlencode", "email=#{email}", "--data-urlencode", "source=homebrew", "--data-urlencode", "product=tokumx", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
     else
-      curl "-X", "POST", "--data-urlencode", "email=anonymous@homebrew-installer.com", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
+      curl "-X", "POST", "--data-urlencode", "email=anonymous@homebrew-installer.com", "--data-urlencode", "source=homebrew", "--data-urlencode", "product=tokumx", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
     end
 
     bin.install Dir["bin/*"]
