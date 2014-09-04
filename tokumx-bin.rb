@@ -7,7 +7,7 @@ class TokumxBin < Formula
   url "https://s3.amazonaws.com/tokumx-1.5.0/tokumx-1.5.0-osx-x86_64-main.tar.gz"
   sha1 "4151a40a6f81c1cb3c226ae24ae429f897609cbb"
 
-  raise FormulaSpecificationError, 'Formula requires Mavericks (OSX 10.9)' unless MacOS.version == :mavericks
+  raise FormulaSpecificationError, 'Formula requires Mavericks or Yosemite (OSX 10.9 or 10.10)' unless MacOS.version >= :mavericks
 
   def install
     email = `osascript -e 'Tell application "System Events" to display dialog "Provide your email address to keep up with TokuMX news:" default answer "email address"' -e "text returned of result"`
