@@ -2,12 +2,12 @@ require "formula"
 
 class TokumxBin < Formula
   homepage "http://www.tokutek.com/products/tokumx-for-mongodb"
-  version "1.5.0"
+  version "1.5.1"
   conflicts_with "mongodb"
-  url "https://s3.amazonaws.com/tokumx-1.5.0/tokumx-1.5.0-osx-x86_64-main.tar.gz"
-  sha1 "4151a40a6f81c1cb3c226ae24ae429f897609cbb"
+  url "https://s3.amazonaws.com/tokumx-1.5.1/tokumx-1.5.1-osx-x86_64-main.tar.gz"
+  sha1 "764476c45c97cc51504ace000cc6ec5d6fb275e0"
 
-  raise FormulaSpecificationError, 'Formula requires Mavericks (OSX 10.9)' unless MacOS.version == :mavericks
+  raise FormulaSpecificationError, 'Formula requires Mavericks or Yosemite (OSX 10.9 or 10.10)' unless MacOS.version >= :mavericks
 
   def install
     email = `osascript -e 'Tell application "System Events" to display dialog "Provide your email address to keep up with TokuMX news:" default answer "email address"' -e "text returned of result"`
