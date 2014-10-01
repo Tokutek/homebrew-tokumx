@@ -1,7 +1,7 @@
 require "formula"
 
 class TokumxBin < Formula
-  homepage "http://www.tokutek.com/products/tokumx-for-mongodb"
+  homepage "http://www.tokutek.com/tokumx-for-mongodb"
   version "2.0.0"
   conflicts_with "mongodb"
   url "https://s3.amazonaws.com/tokumx-2.0.0/tokumx-2.0.0-osx-x86_64-main.tar.gz"
