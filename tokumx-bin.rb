@@ -14,9 +14,9 @@ class TokumxBin < Formula
     raise CannotInstallFormulaError, "Canceling at user request." unless $?.success?
     email.strip!
     unless email.empty?
-      curl "-X", "POST", "--data-urlencode", "email=#{email}", "--data-urlencode", "source=homebrew", "--data-urlencode", "product=tokumx", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
+      exec "curl -X POST --data-urlencode email=#{email} --data-urlencode source=homebrew --data-urlencode product=tokumx -o /dev/null -s http://www.tokutek.com/simple_create_account.php"
     else
-      curl "-X", "POST", "--data-urlencode", "email=anonymous@homebrew-installer.com", "--data-urlencode", "source=homebrew", "--data-urlencode", "product=tokumx", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
+      exec "curl -X POST --data-urlencode email=anonymous@homebrew-installer.com --data-urlencode source=homebrew --data-urlencode product=tokumx -o /dev/null -s http://www.tokutek.com/simple_create_account.php"
     end
 
     bin.install Dir["bin/*"]
