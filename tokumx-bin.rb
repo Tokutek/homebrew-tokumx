@@ -10,15 +10,6 @@ class TokumxBin < Formula
   raise FormulaSpecificationError, 'Formula requires Mavericks or Yosemite (OSX 10.9 or 10.10)' unless MacOS.version >= :mavericks
 
   def install
-    email = `osascript -e 'Tell application "System Events" to display dialog "Provide your email address to keep up with TokuMX news:" default answer "email address"' -e "text returned of result"`
-    raise CannotInstallFormulaError, "Canceling at user request." unless $?.success?
-    email.strip!
-    unless email.empty?
-      curl "-X", "POST", "--data-urlencode", "email=#{email}", "--data-urlencode", "source=homebrew", "--data-urlencode", "product=tokumx", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
-    else
-      curl "-X", "POST", "--data-urlencode", "email=anonymous@homebrew-installer.com", "--data-urlencode", "source=homebrew", "--data-urlencode", "product=tokumx", "-o", "/dev/null", "-s", "http://www.tokutek.com/simple_create_account.php"
-    end
-
     bin.install Dir["bin/*"]
     lib.install Dir["lib64/*"]
     share.install Dir["scripts"]
