@@ -13,8 +13,8 @@ class TokumxBin < Formula
 
   def install
     email = ARGV.value("email")
-    email.strip!
-    if email.empty?
+    email.strip! if email
+    unless email and not email.empty?
       email = `osascript -e 'Tell application "System Events" to display dialog "Provide your email address to keep up with TokuMX news:" default answer "email address"' -e "text returned of result"`
       raise CannotInstallFormulaError, "Canceling at user request." unless $?.success?
     end
