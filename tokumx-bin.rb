@@ -5,7 +5,7 @@ class TokumxBin < Formula
   version "2.0.0"
   conflicts_with "mongodb"
   url "https://s3.amazonaws.com/tokumx-2.0.0/tokumx-2.0.0-osx-x86_64-main.tar.gz"
-  sha1 "ad575f0868a778bca45eea404346e9823d6d5ef2"
+  sha256 "fe9a642b42e03c82b989236b0b077d8beee350d6b4089167ff52bafaf875b8ab"
 
   option "email=", "Provide your email address to keep up with TokuMX news"
 
